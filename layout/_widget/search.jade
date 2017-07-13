@@ -3,6 +3,11 @@ if theme.google_search == true
     form(action='//www.google.com/search' method='get' accept-charset='utf-8' class='search-form' target='_blank')
       input(type='text' name='q' maxlength='20' placeholder='Search')
       input(type='hidden' name='sitesearch' value='#{config.url}')
+if theme.bing_search == true
+  .widget
+    form(action='//cn.bing.com/search' method='get' accept-charset='utf-8' class='search-form' target='_blank')
+      input(type='text' name='q' maxlength='20' placeholder='Search')
+      input(type='hidden' name='site' value='#{config.url}')
 if theme.baidu_search == true
   .widget
     form(action='//www.baidu.com/baidu' method='get' accept-charset='utf-8' class='search-form' target='_blank')
