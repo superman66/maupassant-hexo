@@ -24,3 +24,7 @@ head
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
         ga('create','#{theme.google_analytics}','auto');ga('send','pageview');
+    if theme.leancloud
+      script(type='text/javascript', src='//cdn1.lncld.net/static/js/3.0.2/av-min.js' + '?v=' + theme.version)
+      script.
+        AV.init('DicCxG3axqqCc9PCCxf8WAyv-gzGzoHsz', 'yfU0qujWrNIU2tnf3ooNfmgX');

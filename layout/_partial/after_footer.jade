@@ -80,3 +80,47 @@ if page.mathjax2
 
 script(type='text/javascript', src=url_for(theme.js) + '/codeblock-resizer.js' + '?v=' + theme.version)
 script(type='text/javascript', src=url_for(theme.js) + '/smartresize.js' + '?v=' + theme.version)
+
+script.
+  $(function(){
+    url=window.location.href;
+    title = $('.post-title').text().trim();
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.post-title').length == 1)
+        addCount(Counter, url, title);
+  });
+
+  function addCount (Counter, url ,title) {
+          var ENV = location.host.indexOf('localhost')<=0 ? 'production': 'dev';
+          // save counter when site in production 
+          if( ENV === 'production'){
+          var query=new AV.Query(Counter);
+
+          //use url as unique idnetfication
+          query.equalTo("url",url);
+          query.find().then(function(results){
+            if(results.length>0){
+                      var counter=results[0];
+                      counter.fetchWhenSave(true); //get recent result
+                      counter.increment("time");
+                      counter.save().then(function(counter){
+                        $('#leancloud_value_page_pv').text(counter.attributes.time);
+                      });
+                  }
+                  else{
+                      var newCounter = new Counter();
+                      newCounter.set('title', title);
+                      newCounter.set('url', url);
+                      newCounter.set('time', 1);
+                      newCounter.save().then(function(counter){
+                        $('#leancloud_value_page_pv').text(counter.attributes.time);
+                      }, function(error){
+                        console.error(error);
+                      })
+                  }
+          }, function(error){
+            alert('Error:', error);
+          });
+        }
+  }
