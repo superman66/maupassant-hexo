@@ -36,12 +36,11 @@
          * 增加文章详情页面访问数
          */
         addDetailCount: function (Counter, cb) {
+            // site views increment
+            this.addExceptDedtailCount(Counter, this.siteCountSaveCallback);
+
             this.getDetailCount(Counter)
                 .then(function (results) {
-
-                    // site views increment
-                    this.addExceptDedtailCount(Counter, this.siteCountSaveCallback);
-
                     if (results.length > 0) {
                         var counter = results[0];
                         counter.increment("time");
@@ -88,7 +87,8 @@
          * 判断是否是文章详情页面
          */
         isDetail: function () {
-            return $('.post-title').length == 1;
+            var $title = $('.post-title');
+            return $title.length == 1 && $title.text();
         },
 
         /**
