@@ -80,16 +80,16 @@ if page.mathjax2
 
 script(type='text/javascript', src=url_for(theme.js) + '/codeblock-resizer.js' + '?v=' + theme.version)
 script(type='text/javascript', src=url_for(theme.js) + '/smartresize.js' + '?v=' + theme.version)
-
+script(type='text/javascript', src=url_for(theme.js) + '/leancloud.js' + '?v=' + theme.version)
 script.
-  $(function(){
-    url=window.location.href;
-    title = $('.post-title').text().trim();
-    var Counter=AV.Object.extend("Counter");
-    //only increse visit counting when intering a page
-    if ($('.post-title').length == 1)
-        addCount(Counter, url, title);
-  });
+  //- $(function(){
+  //-   url=window.location.href;
+  //-   title = $('.post-title').text().trim();
+  //-   var Counter=AV.Object.extend("Counter");
+  //-   //only increse visit counting when intering a page
+  //-   if ($('.post-title').length == 1)
+  //-       addCount(Counter, url, title);
+  //- });
 
   function addCount (Counter, url ,title) {
           var ENV = location.host.indexOf('localhost')<=0 ? 'production': 'dev';
@@ -121,7 +121,8 @@ script.
                       })
                   }
           }, function(error){
-            alert('Error:', error);
+            console.error('Error:' + error);
           });
         }
   }
+
