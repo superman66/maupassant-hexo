@@ -102,9 +102,10 @@ script.
           query.find().then(function(results){
             if(results.length>0){
                       var counter=results[0];
-                      counter.fetchWhenSave(true); //get recent result
                       counter.increment("time");
-                      counter.save().then(function(counter){
+                      counter.save({
+                        fetchWhenSave: true,
+                      }).then(function(counter){
                         $('#leancloud_value_page_pv').text(counter.attributes.time);
                       });
                   }
