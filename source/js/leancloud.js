@@ -9,7 +9,7 @@
             AV.init('DicCxG3axqqCc9PCCxf8WAyv-gzGzoHsz', 'yfU0qujWrNIU2tnf3ooNfmgX');
             this.Counter = AV.Object.extend('Counter');
             if (this.isDetail()) {
-                this.addDetailCount(this.Counter, this.detailCountSaveCallback);
+                this.addDetailCount(this.Counter, this.url, this.title, this.detailCountSaveCallback);
             } else {
                 this.addExceptDedtailCount(this.Counter, this.siteCountSaveCallback);
             }
@@ -35,7 +35,7 @@
         /**
          * 增加文章详情页面访问数
          */
-        addDetailCount: function (Counter, cb) {
+        addDetailCount: function (Counter, url, title, cb) {
             // site views increment
             this.addExceptDedtailCount(Counter, this.siteCountSaveCallback);
 
