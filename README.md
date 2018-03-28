@@ -1,6 +1,10 @@
 # Maupassant
-
 [![Build Status](https://travis-ci.org/tufu9441/maupassant-hexo.svg?branch=master)](https://travis-ci.org/tufu9441/maupassant-hexo)   [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/tufu9441/maupassant-hexo/blob/master/LICENSE)
+## 新增功能
+- 增加 SEO 设置
+  - 支持配置文件为全局设置 SEO Title、Description meta
+  - 支持文章详情页面根据 “文章标题+SEO Title”设置每个页面的标题
+  - 支持文章设置 Description meta
 
 > 大道至简
 
