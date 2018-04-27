@@ -4,7 +4,9 @@ block description
     meta(name='description', content=page.desc)
   else 
     meta(name='description', content=config.description)  
-
+block robots
+  if page.disallow
+    meta(name='robots', content='noindex,nofollow')
 block title
   title= page.title + ' - ' + config.SEOTitle
   

@@ -1,5 +1,9 @@
 extends base
 - var current_title = page.title || tag.name || category.name || site.title
+
+block robots
+  if page.disallow
+    meta(name='robots', content='noindex,nofollow')
 block description
   if page.desc
     meta(name='description', content=page.desc)
@@ -10,7 +14,7 @@ block title
   if config.subtitle
     title= config.title + ' | ' + config.subtitle
   else
-    title= config.title + ' - ' + config.SEOTitle
+    title= config.title
 block content
 
   for post in page.posts.toArray()

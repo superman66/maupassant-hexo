@@ -1,6 +1,6 @@
 fancybox: false ## If you want to use fancybox please set the value to true.
 duoshuo: ## Your duoshuo_shortname, e.g. username
-disqus: ## Your disqus_shortname, e.g. username
+disqus: http-chenhuichao-com ## Your disqus_shortname, e.g. username
 uyan: ## Your uyan_id. e.g. 1234567
 gentie: ## Your gentie_productKey, e.g. fc799538c7ad4cf5a5a0c2877a90cbd7
 changyan: ## Your changyan appid
@@ -33,7 +33,7 @@ menu:
     directory: about/
     icon: fa-user
   - page: rss
-    directory: atom.xml
+    directory: /atom.xml
     icon: fa-rss
 
 widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts, rencent_comments and links.
